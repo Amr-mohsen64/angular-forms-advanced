@@ -1,0 +1,30 @@
+<div [formGroup]="form">
+  <mat-form-field>
+    <input matInput placeholder="Course title" formControlName="title" #title>
+    <mat-hint align="end">{{title.value.length +1 }} / 60</mat-hint>
+    <mat-error *ngIf="courseTitle.errors?.required">this field is required</mat-error>
+    <mat-error *ngIf="courseTitle.errors?.minlength">min length is 5</mat-error>
+    <mat-error *ngIf="courseTitle.errors?.titleExists">Title already exists please choose another one</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select category" formControlName="category">
+      <mat-option *ngFor="let category of categories$ | async "
+        [value]="category.code">{{category.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="releaseDatePicker" formControlName="releaseDate" placeholder="Release Date">
+    <mat-datepicker-toggle [for]="releaseDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #releaseDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-checkbox color="primary" formControlName="downloadsAllowed">Downloads allowed?</mat-checkbox>
+  <mat-form-field>
+    <textarea matInput placeholder="Description" formControlName="longDescription"></textarea>
+
+  </mat-form-field>
+  {{form.valid | json}}
+</div>
