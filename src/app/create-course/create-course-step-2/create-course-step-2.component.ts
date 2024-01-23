@@ -12,6 +12,7 @@ export class CreateCourseStep2Component implements OnInit {
   form = this.fb.group(
     {
       courseType: ["premium", Validators.required],
+      thumbnail: [null, [Validators.required]],
       price: [
         null,
         [

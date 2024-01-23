@@ -3,8 +3,9 @@
     <mat-radio-button value="free">Free</mat-radio-button>
     <mat-radio-button value="premium">Premium</mat-radio-button>
   </mat-radio-group>
+  <file-upload requiredFileType="image/png" formControlName="thumbnail"></file-upload>
 
-  <mat-form-field>
+  <mat-form-field>formArrayNam="fileUpload"
     <input type="number" matInput placeholder="price" formControlName="price">
   </mat-form-field>
 
@@ -20,7 +21,8 @@
     <mat-error *ngIf="form.errors?.promoPeriod">End Date must be more than start Date</mat-error>
   </mat-form-field>
 
-  {{form.errors | json}}
+  {{form.valid }} <br>
+  {{form.controls['thumbnail'].valid}}
 
 
 </div>
