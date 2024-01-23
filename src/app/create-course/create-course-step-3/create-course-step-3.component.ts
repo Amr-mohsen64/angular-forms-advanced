@@ -38,4 +38,16 @@ export class CreateCourseStep3Component {
       level: ["beginner", Validators.required],
     });
   }
+
+  moveUp(index: number) {
+    const currentLessonControl = this.lessons.at(index);
+    this.lessons.removeAt(index);
+    this.lessons.insert(index - 1, currentLessonControl);
+  }
+
+  moveDown(index: number) {
+    const currentLessonControl = this.lessons.at(index);
+    this.lessons.removeAt(index);
+    this.lessons.insert(index + 1, currentLessonControl);
+  }
 }
