@@ -1,4 +1,6 @@
 <div [formGroup]="form">
+  <address-form legend="Address" formControlName="address"></address-form>
+
   <mat-form-field>
     <input matInput placeholder="Course title" formControlName="title" #title>
     <mat-hint align="end">{{title.value.length +1 }} / 60</mat-hint>
@@ -26,5 +28,5 @@
     <textarea matInput placeholder="Description" formControlName="longDescription"></textarea>
 
   </mat-form-field>
-  {{form.valid | json}}
+  {{form.value | json}}<br>{{form.valid }}
 </div>

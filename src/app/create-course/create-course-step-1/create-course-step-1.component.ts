@@ -32,6 +32,7 @@ export class CreateCourseStep1Component implements OnInit {
         // updateOn: "blur",
       },
     ],
+    address: [null, [Validators.required]],
     category: ["BEGINNER", [Validators.required]],
     releaseDate: [new Date(), [Validators.required]],
     downloadsAllowed: [false, [Validators.required]],
